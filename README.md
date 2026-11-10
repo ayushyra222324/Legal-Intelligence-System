@@ -189,7 +189,7 @@ Legal-Intelligence-System/
 
 ## Technical Ablations & Critical Findings
 
-1. **Bidirectional Attention Conversion (+10.55 F1 Gain):** Disabling causal attention masks ($\text{is\_causal}=\text{False}$) during sequence tagging (P2) and discourse classification (P3) exposed full sequence context, boosting P2 Strict Macro-F1 from 0.0812 to **0.3735** and P3 Macro-F1 from 0.2714 to **0.3769**.
+1. **Bidirectional Attention Conversion (+10.55 F1 Gain):** Disabling causal attention masks(`is_causal=False`) during sequence tagging (P2) and discourse classification (P3) exposed full sequence context, boosting P2 Strict Macro-F1 from 0.0812 to **0.3735** and P3 Macro-F1 from 0.2714 to **0.3769**.
 2. **LORMA vs. Standard LoRA (44.9$\times$ Performance Boost):** On token-level boundary tasks (P2 NER), Linear-Out Rank-Minimizing Adaptation (LORMA) achieved **0.0981** Strict F1 compared to standard PEFT LoRA (**0.0022**). Interleaved rank-minimizing projections preserve subword boundary transitions significantly better than parallel low-rank matrices.
 3. **Distillation regularizes text generation:** In Phase 6 (Summarization), distilling soft teacher probabilities into a compact 3-layer student achieved higher BERTScore F1 (**0.8219**) than the teacher model (**0.8148**). KL-divergence distillation acts as a label-smoothing regularizer that prevents autoregressive hallucination loops.
 4. **Virtual Prefixes fail in Metric Learning:** Prefix Tuning (P7 Retrieval) collapsed to **0.0118** Micro-F1@7 compared to QLoRA (**0.1453**). Virtual key-value prompt prefixes cannot deform a frozen representation space for dense contrastive retrieval.
