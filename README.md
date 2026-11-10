@@ -104,7 +104,7 @@ Legal-Intelligence-System/
 * **Task Goal:** Sequence tagging over 12 legal entity categories (e.g., `COURT`, `STATUTE`, `JUDGE`, `PROVISION`) evaluated via Strict Macro-F1 with exact character boundary matching.
 * **Key Innovations & Alignment:**
   * **Exact Offset Mapping:** Integrated `return_offsets_mapping=True` during subword tokenization, mapping tokens back to raw document character positions to prevent zero-score submission drift on CodaBench.
-  * **Bidirectional Attention Conversion:** Converted causal decoders into full bidirectional encoders ($\text{is\_causal}=\text{False}$), exposing left-and-right sequence context.
+  * **Bidirectional Attention Conversion:** Converted causal decoders into full bidirectional encoders (`is_causal=False`), exposing left-and-right sequence context.
 * **Notebooks & Submissions:**
   * `phase2_moderndec_lorma.ipynb` **(Winner - Strict F1: 0.3735)**: Modern Decoder + Rank-128 LORMA adapters + Bidirectional conversion.
   * `phase2_hybridenc_lorma.ipynb` **(Strict F1: 0.0981)**: Hybrid Encoder + Rank-128 LORMA.
